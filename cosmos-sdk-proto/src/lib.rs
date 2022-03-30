@@ -65,6 +65,10 @@ pub mod cosmos {
             pub mod v1beta1 {
                 include!("prost/cosmos.base.reflection.v1beta1.rs");
             }
+
+            pub mod v2alpha1 {
+                include!("prost/cosmos.base.reflection.v2alpha1.rs");
+            }
         }
 
         /// Snapshots containing Tendermint state sync info.
@@ -92,6 +96,13 @@ pub mod cosmos {
         }
     }
 
+    /// Capability module primitives
+    pub mod capability {
+        pub mod v1beta1 {
+            include!("prost/cosmos.capability.v1beta1.rs");
+        }
+    }
+
     /// Crisis handling
     pub mod crisis {
         pub mod v1beta1 {
@@ -114,6 +125,9 @@ pub mod cosmos {
         pub mod secp256k1 {
             include!("prost/cosmos.crypto.secp256k1.rs");
         }
+        pub mod secp256r1 {
+            include!("prost/cosmos.crypto.secp256r1.rs");
+        }
     }
 
     /// Messages and services handling token distribution
@@ -127,6 +141,13 @@ pub mod cosmos {
     pub mod evidence {
         pub mod v1beta1 {
             include!("prost/cosmos.evidence.v1beta1.rs");
+        }
+    }
+
+    /// Feegrant module primitives
+    pub mod feegrant {
+        pub mod v1beta1 {
+            include!("prost/cosmos.feegrant.v1beta1.rs");
         }
     }
 
@@ -217,10 +238,33 @@ pub mod cosmwasm {
 pub mod ibc {
     /// IBC applications.
     pub mod applications {
+        /// Interchain accounts support.
+        pub mod interchain_accounts {
+            pub mod controller {
+                pub mod v1 {
+                    include!("prost/ibc.applications.interchain_accounts.controller.v1.rs");
+                }
+            }
+
+            pub mod host {
+                pub mod v1 {
+                    include!("prost/ibc.applications.interchain_accounts.host.v1.rs");
+                }
+            }
+
+            pub mod v1 {
+                include!("prost/ibc.applications.interchain_accounts.v1.rs");
+            }
+        }
+
         /// Transfer support.
         pub mod transfer {
             pub mod v1 {
                 include!("prost/ibc.applications.transfer.v1.rs");
+            }
+
+            pub mod v2 {
+                include!("prost/ibc.applications.transfer.v2.rs");
             }
         }
     }
@@ -273,6 +317,10 @@ pub mod ibc {
         pub mod solomachine {
             pub mod v1 {
                 include!("prost/ibc.lightclients.solomachine.v1.rs");
+            }
+
+            pub mod v2 {
+                include!("prost/ibc.lightclients.solomachine.v2.rs");
             }
         }
         pub mod tendermint {
